@@ -1,0 +1,121 @@
+section.notes
+	color: $white
+	background:
+		image: url(../img/notes-bg.jpg)
+		size: cover
+	ul
+		margin: 0
+		padding: 0 0 0 30px
+		li
+			a
+				color: white
+				font-style: italic
+				font-weight: 300	
+				&:hover
+					text-decoration: underline
+	.col-1
+		p
+			padding: 0
+			margin: 0
+		padding: 0px 0px 0px 30px
+		&:nth-child(1)
+			padding-left: 0
+			padding-right: 30px
+			border-right: 2px solid white
+
+.home-lead
+		text-align: center
+.form-display
+	position: relative
+	background-color: white
+	height: 50px
+	width: 100%
+	margin: 50px 0
+	+display(flex)
+	+justify-content(space-between)
+	border: 2px solid white
+	box-shadow: 0px 4px 14px rgba(black, 0.4)
+input
+	display: inline-block
+	outline: none
+	border: none
+	padding: 5px 20px
+	color: white
+	&[type="text"],
+	&[type="email"]
+		background-color: transparent
+
+	&[type="submit"]
+		color: #9d62e6
+		font-size: 16px
+		background-color: white
+		cursor: pointer
+		+transition
+		padding: 0 20px
+		&:hover
+			color: lighten(#9d62e6, 10%)
+		
+
+
+.mc-field-group
+	position: relative
+	display: inline-block
+	width: 50%
+	background-color: #9d62e6
+	margin-right: 10px
+	&:nth-child(2)
+		margin-right: 0
+	
+	input
+		width: 100%
+	label
+		position: absolute
+		+transform(translateY(-50%))
+		top: 50%
+		left: 10px
+		color: white
+		pointer-events: none
+		+transition
+		
+input:focus
+	border: none
+input:focus + label,
+input.has-value + label
+	top: -20px
+	left: 0
+	font-size: 12px
+	color: white
+
+
+@media (max-width: 640px)
+	section.notes
+		.col-1
+			padding: 0px 20px 20px 20px
+			&:nth-child(1)
+				border-right: none
+				padding-left: 20px
+		ul
+			padding: 0 0 0 20px		
+	.form-display
+		display: block
+		background-color: transparent
+		box-shadow: none
+		border: none
+		height: auto
+	.mc-field-group
+		display: block
+		width: 100%
+		margin-bottom: 40px
+		&:nth-child(2)
+			margin-bottom: 0
+	input
+		padding: 15px 10px
+		border: 2px solid white 
+		&[type="submit"]
+			float: right
+			margin: 20px 0px
+			padding: 10px 20px
+
+
+
+

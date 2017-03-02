@@ -1,0 +1,117 @@
+section.articles
+	background-image: url(../img/articles-bg.jpg)
+	position: center
+	color: white
+	+clearfix
+	.home-cta
+		color: #a6b3b5
+		font-size: 22px
+.article-thumb
+	background-color: pink
+	width: 25%
+	float: left
+	position: relative
+	overflow: hidden
+	cursor: pointer
+	background:
+		position: center
+		size: cover
+	&:after
+		content: ""
+		display: block
+		padding-top: 100%
+	&:hover .meta
+		transform: translateY(0%)
+	@for $i from 1 through 12
+		&:nth-child(#{$i})
+			background-image: url(../img/thumbnails/thumb-#{$i}.jpg)
+
+	&.is-emph
+		@extend %tada
+		z-index: 1
+.meta
+	transform: translateY(100%)
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: fade-out(#a6b3b5, 0.2)
+	transition: all ease-in-out 300ms
+	+display(flex)
+	+flex-direction(column)
+	+align-items(center)
+	+justify-content(center)
+	color: white
+	pointer-events: none
+
+.thumb-wrap
+	+clearfix
+	margin: -50px 0px
+	width: 100%
+.article-wrap
+	+display(flex)
+	+align-items(center)
+	+justify-content(center)
+
+
+.desc-wrap
+	width: 100%
+.work-container
+	width: 100%
+	position: relative
+	display: none
+	@media (max-width: 640px)
+		margin-top: 20px
+	&.active
+		display: block
+		@extend %spinner
+	.col-1
+		width: 100%
+		position: relative
+.work-unit
+	width: 100%
+	display: none
+	margin: -50px 0
+	border: 6px solid $white
+	border-radius: 4px
+	&.active
+		display: block
+		box-shadow: 0px 8px 30px rgba($black, 0.4)
+	img
+		width: 100%
+.back
+	+size(80px)
+	border-radius: 50%
+	position: absolute
+	top: 10px
+	right: 20px
+	cursor: pointer
+	//background: red
+	font-size: 30px
+	color: red
+	background: white
+	+display(flex)
+	+justify-content(center)
+	+align-items(center)
+.name
+	font-size: 16px
+	margin: 0px 0px 5px 0px
+	line-height: 1.2
+	@media (max-width: 640px)
+		font-size: 12px
+
+@media (max-width: 999px) and (min-width: 640px)
+	.article-thumb
+		width: 33.3%
+
+@media (max-width: 640px)
+	section.articles
+		.col-1
+			margin: -40px auto 0px
+	.article-wrap
+		margin-top: 100px
+	.back
+		+size(30px)
+		right: 30px
+		top: 20px

@@ -1,0 +1,23 @@
+.flex-video
+  height: 0
+  overflow: hidden
+  position: relative
+  padding-bottom: 55.3%
+  box-shadow: 0px 3px 40px 3px rgba(0,0,0,0.6)
+  +transition
+  &:hover
+  	box-shadow: 0px 3px 40px 3px rgba(0,0,0,0.3)
+@media (max-width: 640px)
+	.flex-video
+		padding-bottom: 55.3%
+	  
+
+.flex-video iframe,
+.flex-video object,
+.flex-video embed,
+.flex-video video
+  height: 100%
+  position: absolute
+  top: 0
+  width: 100%
+  left: 0
