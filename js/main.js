@@ -141,8 +141,12 @@ function mentoringWideStart() {
 
 
 function articleTada(){
-  var randNum = Math.floor(Math.random() * $('.article-thumb').length);
-  $('.article-thumb').eq(randNum).addClass('is-emph').siblings().removeClass('is-emph');
+  var $thumbs = $('.article-thumb');
+  if ($thumbs.length === 0) {
+    return;
+  }
+  var randNum = Math.floor(Math.random() * $thumbs.length);
+  $thumbs.eq(randNum).addClass('is-emph').siblings().removeClass('is-emph');
 }
 
 
@@ -175,4 +179,8 @@ function thumbStuff() {
 		$('.thumb-wrap').css('display', 'block');
 		$('.work-container').removeClass('active');
 	})
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { articleTada };
 }
