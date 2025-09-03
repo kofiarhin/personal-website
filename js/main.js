@@ -2,7 +2,10 @@ $(function(){
 	mentoringBubbleClick();
 	   mobileNav();
 	   smoothScroll(300);
-	   setInterval(function(){articleTada()}, 6000);
+           if (window.articleInterval) {
+             clearInterval(window.articleInterval);
+           }
+           window.articleInterval = setInterval(articleTada, 6000);
 	   notesStuff();
 	   thumbStuff();
 });
@@ -27,7 +30,6 @@ $(window).resize(function() {
 function mobileNav() {
   $('.mobile-nav-toggle').on('click', function(){
 			$('.mobile-nav').toggleClass('is-showing');
-      console.log('yeah ma');
 
 		//var status = $(this).hasClass('is-open');
     //if(status){ $('.mobile-nav-toggle, .mobile-nav').removeClass('is-open'); }
@@ -153,7 +155,7 @@ function articleTada(){
 function notesStuff() {
 	$('section.notes input').focusout(function(){
       var text_value = $(this).val();
-      if( text_value == "" ){
+      if (text_value === "") {
       	$('section.notes input').removeClass('has-value');
 
       } else {

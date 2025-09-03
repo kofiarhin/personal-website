@@ -1,6 +1,7 @@
 /**
  * @jest-environment node
  */
+process.env.JWT_SECRET = 'testsecret';
 const request = require('supertest');
 const app = require('./app');
 const { resetUsers } = require('./routes/auth');
