@@ -80,6 +80,24 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.get('/me', (req, res) => {
+  const authHeader = req.headers.authorization || '';
+  const [, token] = authHeader.split(' ');
+  if (!token) {
+    return res.status(401).json({ error: 'Missing token' });
+  }
+  try {
+    const payload = jwt.verify(token, jwtSecret);
+    const user = users.get(payload.username);
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid token' });
+    }
+    return res.json({ username: user.username });
+  } catch (err) {
+    return res.status(401).json({ error: 'Invalid token' });
+  }
+});
+
 function resetUsers() {
   users.clear();
   saveUsers(users);
